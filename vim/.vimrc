@@ -50,16 +50,22 @@ let NERDTreeShowHidden = 1
 
 " Keymappings
 let g:mapleader = ','
+"" Vim Related keymaps
 nmap <Leader>m :tabnext<CR>
 nmap <Leader>n :tabprevious<CR>
 nmap <Leader>c :tabclose<CR>
+nmap <Leader><C-S> :tabnew ~/.vimrc<CR>
+nmap <Leader>j :m .+1<CR>
+nmap <Leader>k :m .-2<CR>
+vmap <Leader>j :m '>+1<CR>gv=gv
+vmap <Leader>k :m '<-2<CR>gv=gv
 nmap <Leader>w :w!<CR>
 nmap <Leader>s :source ~/.vimrc<CR>
 nmap <Leader><Space> <Esc>:nohlsearch<CR>
+"" Compilation and runner keymaps
 nmap <Leader><F1> :call CompileProject()<CR>
-imap <Leader><F1> <Esc>:call CompileProject()<CR>
+"" Plugin related keymaps
 nmap <Leader>on :NERDTreeToggle<CR>
-nmap <Leader><C-S> :tabnew ~/.vimrc<CR>
 
 " Autocommands
 augroup command_runner
@@ -70,6 +76,5 @@ augroup END
 """"""""" Custom Functions 
 " Customize project compilation process based on compilation system
 func! CompileProject()
-	exec "w"
-	exec "echo '(.vimrc) Configure CompileProject Function\!'"
+	exec "echoerr '(.vimrc) Configure CompileProject Function\!'"
 endfunc
